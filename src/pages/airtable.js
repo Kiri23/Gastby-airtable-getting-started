@@ -7,23 +7,26 @@ export default function MyTemplate({ data }) {
   return (
     <div>
       {records.map((record) => (
-        <div key={record.node.id}>{record.node.data.tuCampo}</div>
+        <div key={record.node.id}>
+          {record.node.data.Name}
+          </div>
       ))}
     </div>
   )
 }
 
 export const query = graphql`
-  query {
-    allAirtable {
-      edges {
-        node {
-          id
-          data {
-            tuCampo
-          }
+{
+  allAirtable(filter: {table: {eq: "Table 1"}, data: {}}) {
+    edges {
+      node {
+        data {
+          Name
+          Status
+          Notes
         }
       }
     }
   }
+}
 `

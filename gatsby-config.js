@@ -7,6 +7,8 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+ require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -42,9 +44,13 @@ module.exports = {
     {
       resolve: `gatsby-source-airtable`,
       options: {
-        apiKey: `tu-api-key-de-airtable`, // Ver cómo conseguir una API Key en la documentación de Airtable
-        baseId: `tu-id-de-base`, // Ver cómo encontrar el ID de tu base en la documentación de Airtable
-        tableName: `tu-tabla`, // El nombre de la tabla que quieres utilizar en tu sitio
+        apiKey: process.env.AIRTABLE_API_KEY,
+        tables: [
+          {
+            baseId: process.env.AIRTABLE_BASE_ID, 
+            tableName: process.env.AIRTABLE_TABLE_NAME,
+          }
+        ]
       },
     },
   ],
