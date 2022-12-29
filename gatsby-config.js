@@ -39,5 +39,13 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: `tu-api-key-de-airtable`, // Ver cómo conseguir una API Key en la documentación de Airtable
+        baseId: `tu-id-de-base`, // Ver cómo encontrar el ID de tu base en la documentación de Airtable
+        tableName: `tu-tabla`, // El nombre de la tabla que quieres utilizar en tu sitio
+      },
+    },
   ],
 }
