@@ -7,7 +7,7 @@
 <h1 align="center">
   Gatsby's Airtable starter
 </h1>
-This project uses Gatsby and the Airtable API to create a dynamic website that displays data stored in an Airtable database. The application connects to Airtable via an API key and uses GraphQL to retrieve and display the data on the page.
+This project uses Gatsby and the Airtable API to create a dynamic website that displays data stored in an Airtable database. The application connects to Airtable via a Personal Acces Token (pat) and uses GraphQL to retrieve and display the data on the page.
 
 The project includes a home page that displays a list of records from the database, and a detail page to show detailed information for each record.
 
@@ -21,6 +21,43 @@ To make a request to Airtable use this curl
 This will only work for a specific airtable database 
 
 _Have another more specific idea? Send me a email at christian_nogueras94@hotmail.com_
+
+## Requirements 
+To make this project work properly, you need to include an environment file (`.env`). This file should be located in the root of the project and should contain your Airtable API key, which will be used to connect to the database.
+
+To create the `.env` file, simply create a new file in the root of the project with the name `.env` and add your Airtable API key like this:
+
+```
+API_KEY=my-api-key
+```
+
+Make sure to keep the `.env` file secret and do not include it in your version control. This way, you can use this project without worrying about sharing your API keys with others.
+
+This project uses the `dotenv` [package](https://www.npmjs.com/package/dotenv) to load the environment variables from the .env file. To use it, you need to install dotenv as a dependency of your project:
+
+```
+npm install dotenv
+```
+
+Then, in your Gatsby configuration file (usually `gatsby-config.js`), you can import the `dotenv` module and call the `config()` function to load the environment variables from the `.env` file:
+
+```
+require("dotenv").config()
+
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-source-some-api`,
+      options: {
+        apiKey: process.env.API_KEY,
+      },
+    },
+  ],
+}
+```
+I hope this helps you understand how to use the `.env` file and the `dotenv` package in this project. If you have any questions or need more information, please don't hesitate to ask. Good luck with your project!
+
+
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in a typical Gatsby project.
