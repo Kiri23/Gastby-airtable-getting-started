@@ -11,11 +11,12 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Gatsby Airtable Default Starter`,
+    description: `This project uses Gatsby and the Airtable API to create a dynamic website that displays data stored in an Airtable database`,
+    author: `@kiri231`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
+  pathPrefix: "/Gastby-airtable-getting-started",
   plugins: [
     `gatsby-plugin-image`,
     {
